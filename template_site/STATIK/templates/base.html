@@ -1,0 +1,100 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Innovative projects, deep projects with deep learning and python">
+<meta name="author" content="YCZ Team">
+<link rel="icon" href="{% static 'useraccounts/logo.ico' %}">
+<title>
+{% block title %}{% endblock %}
+</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+
+{% comment %}
+<script src="http://cdn.intercoolerjs.org/intercooler-1.0.3.min.js"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+{% endcomment %}
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://127.0.0.1:8000"> <img src="{% static 'useraccounts/logo96.png' %}" width=32 height=32></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://127.0.0.1:8000">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/blog/kayit/">New Post</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+            {% if user.is_authenticated %}
+        <li class="active"><a href="{% url 'useraccounts:get_profile' %}">Profile</a></li>
+        <li> <a href="{% url 'useraccounts:get_profile' %}">Logged In ({{ user.username }})</a></li>
+        <li><a href="{% url 'useraccounts:logout' %}">Logout</a></li>
+            {% else %}
+        <li><a href="{% url 'useraccounts:login' %}">Login</a></li>
+            {% endif %}
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="starter-template">
+
+{% block content %}{% endblock %}
+  </div>
+</div>
+
+
+<footer class="footer" align="center">
+  <div class="foot_container navbar-fixed-bottom row-fluid">
+    <span class="text-muted">
+    Copyright © 2017 YCZ Team
+{% block footer %}{% endblock %}
+    </span>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<p>Thanks for spending some quality time with the Web site today.</p>
+
+<p><a href="{% url 'useraccounts:login' %}">Log in again</a></p>
+
+{% endblock %}
+

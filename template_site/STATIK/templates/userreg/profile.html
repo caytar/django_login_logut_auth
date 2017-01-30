@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% load bootstrap3 %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+	<p>Welcome, {{ user.username }}</p>
+	<p>This is your profile.</p>
+	<p>Also your dashboard.</p>
+
+	<br><p>If you want, you may also <a href="{% url 'useraccounts:password_change' %}">change password</a>
+{% endif %}	
+{% endblock %}
