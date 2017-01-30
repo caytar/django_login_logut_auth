@@ -30,7 +30,8 @@ LOGIN_URL ='/useraccounts/ulogin/'
 STATIC_ROOT = BASE_DIR + '/STATIK/static/'
 STATIC_URL  = '/static/'
 
-Then after doing necessary settings requirements, do the classif stuff :
+Then after doing necessary settings requirements, do the classif stuff (add at least one user) :
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+python manage.py createsuperuser
